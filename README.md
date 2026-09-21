@@ -10,6 +10,7 @@ head(df)
 60    1   14 subj-ext   6 機師       -  860    de1 subject relative
 73    1    4 subj-ext   6 男孩       -  868    de1 subject relative
 install.packages("dplyr")
+> library(dplyr)
 resultats <- df%>%
   filter(region=="headnoun",type%in% c("subj-ext", "obj-ext"))%>%group_by(type) %>%
   summarise(mean_RT = mean(rt,na.rm = TRUE), standard_error=sd(rt,na.rm = TRUE)/sqrt(sum(!is.na(rt))), n = sum(!is.na(rt)))
